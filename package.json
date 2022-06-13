@@ -1,0 +1,145 @@
+{
+  "name": "@th3rdwave/react-navigation-bottom-sheet",
+  "version": "0.2.0",
+  "description": "Bottom sheet component for React Navigation",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "files": [
+    "src",
+    "lib",
+    "!lib/typescript/example",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "scripts": {
+    "test": "jest",
+    "typescript": "tsc --noEmit",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "prepare": "bob build",
+    "release": "release-it",
+    "example": "yarn --cwd example",
+    "pods": "cd example && pod-install --quiet",
+    "bootstrap": "yarn example && yarn && yarn pods"
+  },
+  "keywords": [
+    "react-native",
+    "react-navigation",
+    "bottom-sheet"
+  ],
+  "repository": "https://github.com/th3rdwave/react-navigation-bottom-sheet",
+  "author": "Janic Duplessis <janicduplessis@gmail.com> (https://github.com/janicduplessis)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/th3rdwave/react-navigation-bottom-sheet/issues"
+  },
+  "homepage": "https://github.com/th3rdwave/react-navigation-bottom-sheet#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^17.0.2",
+    "@gorhom/bottom-sheet": "^4.3.1",
+    "@react-native-community/eslint-config": "^3.0.2",
+    "@react-navigation/native": "^6.0.10",
+    "@release-it/conventional-changelog": "^5.0.0",
+    "@types/jest": "^28.1.1",
+    "@types/react": "~17.0.21",
+    "@types/react-native": "0.67.8",
+    "commitlint": "^17.0.2",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.1",
+    "pod-install": "^0.1.36",
+    "prettier": "^2.6.2",
+    "react": "17.0.2",
+    "react-native": "0.68.2",
+    "react-native-builder-bob": "^0.18.2",
+    "release-it": "^15.0.0",
+    "typescript": "^4.7.3"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "@react-navigation/native": "*",
+    "@gorhom/bottom-sheet": "*"
+  },
+  "jest": {
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/example/node_modules",
+      "<rootDir>/lib/"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular"
+      }
+    }
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@react-native-community",
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "quoteProps": "consistent",
+          "singleQuote": true,
+          "tabWidth": 2,
+          "trailingComma": "all",
+          "useTabs": false
+        }
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ],
+  "prettier": {
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  }
+}
